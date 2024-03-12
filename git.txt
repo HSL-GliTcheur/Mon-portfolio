@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "update de"
+git branch -M main
+                                (git remote add origin https://github.com/HSL-GliTcheur/Mon-portfolio.git)
+git push -u origin main

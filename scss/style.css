@@ -12034,6 +12034,13 @@ textarea.form-control-lg {
 
 #page3 {
   height: 28vh;
+  border-bottom: 1.5px;
+  border-bottom-style: solid;
+  border-bottom-color: #aaa;
+}
+
+#page5 {
+  height: 100vh;
 }
 
 .bgorange {
@@ -12054,4 +12061,38 @@ textarea.form-control-lg {
   margin-top: -90px;
   width: 100%;
   height: 90px;
+}
+
+.stage {
+  height: auto;
+  border: 0.2px solid #ddd;
+}
+
+.mt-15vh {
+  margin-top: 15vh;
+}
+
+.mt-20vh {
+  margin-top: 20vh;
+}
+
+@media screen and (min-width: 768px) {
+  .space1 {
+    margin-top: 30vh !important;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .space1 {
+    margin-top: 10vh !important;
+  }
+}
+.bg-sombre {
+  background-color: #ddd;
+  border-radius: 8px;
+}
+
+.bar-top {
+  border-top: 1.5px;
+  border-top-style: solid;
+  border-top-color: #aaa;
 }/*# sourceMappingURL=style.css.map */

@@ -12095,4 +12095,10 @@ textarea.form-control-lg {
   border-top: 1.5px;
   border-top-style: solid;
   border-top-color: #aaa;
+}
+
+@media screen and (max-width: 800px) {
+  .font-size {
+    font-size: 120% !important;
+  }
 }/*# sourceMappingURL=style.css.map */

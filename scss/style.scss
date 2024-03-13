@@ -85,7 +85,7 @@
 }
 
 #page5 {
-    height: 100vh;
+    height: auto;
 }
 
 .bgorange {
@@ -109,7 +109,7 @@
 }
 
 .stage {
-    height: auto; // -------------------------------------- a mettre en auto-----------------------------------------------
+    height: auto;
     border: 0.2px solid #ddd;
 }
 
@@ -154,4 +154,27 @@
     display: flex;
     align-content: center;
     flex-wrap: wrap;
+}
+
+#page6 {
+    background-color: #000;
+    height: auto;
+}
+
+#page7 {
+    background-color: #000;
+    height: auto;
+}
+
+.test-shadow {
+    box-shadow: 0.4rem 0.4rem 1rem rgba(255, 255, 255, 0.25);
+}
+
+.center-txt {
+    text-align: center;
+}
+
+
+.hover-width:hover {
+    font-weight: 500;
 }

@@ -149,3 +149,9 @@
         font-size: 120% !important;
     }
 }
+
+.img-center {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}

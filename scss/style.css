@@ -12123,4 +12123,22 @@ textarea.form-control-lg {
 
 .hover-width:hover {
   font-weight: 500;
+}
+
+.c-black {
+  color: #000;
+}
+
+.carousel-inner {
+  margin: auto;
+}
+
+.bg-dark-clear {
+  background-color: rgba(0, 0, 0, 0.5215686275);
+}
+
+.contour {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
 }/*# sourceMappingURL=style.css.map */

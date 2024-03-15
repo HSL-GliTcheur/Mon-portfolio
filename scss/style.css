@@ -12167,6 +12167,7 @@ textarea.form-control-lg {
 #page8 {
   background-color: #000;
   color: white;
+  overflow: hidden;
 }
 
 .box {
@@ -12237,4 +12238,21 @@ footer a {
   font-family: "Lato", sans-serif;
   font-weight: 400 !important;
   font-style: normal;
+}
+
+.deco {
+  width: 27vh;
+  height: 27vh;
+  background-color: #383838;
+  box-shadow: 2px 2px 15px white;
+  display: block;
+  position: relative;
+  right: -100vw;
+  transform: rotate(45deg) translateY(116px);
+  transition: 1s ease-in-out;
+}
+
+.deco:hover {
+  right: -96vw;
+  box-shadow: 0.5px 0.5px 10px white;
 }/*# sourceMappingURL=style.css.map */

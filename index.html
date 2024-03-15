@@ -8,17 +8,23 @@
     <meta name="description"
         content="Je m'appelle Hugo SIMON, je suis au Lycée Saint Jean-Baptiste de
     La Salle, je suis plus précisément en 1ère SN spécialité RISC. Je suis passionné par l'informatique et voici mon portfolio.">
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/74b1f80ce2.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="./scss/style.css">
 </head>
 
 <body>
     <header>
-        <nav class=" navbar navbar-expand-md fixed-top navbar-light bg-light">
+        <nav class=" navbar navbar-expand-lg fixed-top navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold" href="./">Portfolio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -77,10 +83,10 @@
                             Saint-Jean-Baptiste de
                             La Salle.</h1>
                         <h2 class="fw-light">Bienvenue sur mon site.</h2>
-                        <a href="#page6" class="btn bgorange btnorange mt-5">Qui suis-je</a>
+                        <a href="#page6" class="btn bgorange btnorange mt-5 btnFont">Qui suis-je</a>
                     </div>
                     <div class="col-12 col-md-6">
-                        <img src="../img/" alt="Photo de profile" width="100%">
+                        <img class="rounded-1" src="../img/ImageCode.png" alt="image du code source" width="100%">
                     </div>
                 </div>
             </div>
@@ -90,8 +96,8 @@
 
         <section id="page2" class="py-5 section">
             <div class="container">
-                <h2 class="mb-0">Mes compétences</h2>
-                <h3 class="fw-light fs-5">Développement web et système d'exploitation </h3>
+                <h2 class="mb-0 titre">Mes compétences</h2>
+                <h3 class="fw-light fs-5 sousTitre">Développement web et système d'exploitation </h3>
                 <!-- Developpement -->
                 <div class="row align-items-center gy-4 mt-4">
                     <div class="col-12 col-md-7">
@@ -277,7 +283,7 @@
 
         <section id="page3" class="py-5 section">
             <!-- Button trigger modal -->
-            <button type="button" class="btn bgorange btnorange mx-auto d-block" data-bs-toggle="modal"
+            <button type="button" class="btn bgorange btnorange mx-auto d-block btnFont" data-bs-toggle="modal"
                 data-bs-target="#MesCv">
                 Mes CV
             </button>
@@ -300,7 +306,7 @@
                                     <h5 class="card-title">CV le plus récent</h5>
                                     <p class="card-text">Ce CV contient les stages les plus récents</p>
                                     <a href="./img/cv-hugo-simon-1-ere-risc-modifie.pdf"
-                                        class="btn btn-primary">Télécharger</a>
+                                        class="btn btn-primary btnFont">Télécharger</a>
                                 </div>
                             </div>
 
@@ -311,13 +317,15 @@
                                 <div class="card-body">
                                     <h5 class="card-title">CV le plus ancien</h5>
                                     <p class="card-text">Ce CV contient les ancien stages</p>
-                                    <a href="./img/cv-hugo-simon-1-ere-risc.pdf" class="btn btn-primary">Télécharger</a>
+                                    <a href="./img/cv-hugo-simon-1-ere-risc.pdf"
+                                        class="btn btn-primary btnFont">Télécharger</a>
                                 </div>
                             </div>
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary btnFont"
+                                data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
@@ -329,8 +337,8 @@
         <main>
             <section id="page4" class="py-5 section">
                 <div class="container">
-                    <h2 class="mb-0">Mes diplômes</h2>
-                    <h3 class="fw-light fs-5 mb-5">Visualisation et téléchargement</h3>
+                    <h2 class="mb-0 titre">Mes diplômes</h2>
+                    <h3 class="fw-light fs-5 mb-5 sousTitre">Visualisation et téléchargement</h3>
                 </div>
                 <div class="container">
                     <div class="row g-5 align-items-end">
@@ -347,9 +355,9 @@
                                     <p class="card-text">
                                         Obtenu le 23 mai 2022.
                                     </p>
-                                    <a href="./img/file-download/pix-certif.pdf" class="btn bgorange btnorange mb-2"
-                                        target="_blank">Voir la page</a>
-                                    <a href="./img/file-download/pix-certif.pdf" class="btn btn-primary  mb-2"
+                                    <a href="./img/file-download/pix-certif.pdf"
+                                        class="btn bgorange btnorange mb-2 btnFont" target="_blank">Voir la page</a>
+                                    <a href="./img/file-download/pix-certif.pdf" class="btn btn-primary  mb-2 btnFont"
                                         target="_blank" download="Certification PIX Hugo SIMON">Télécharger</a>
                                 </div>
                             </div>
@@ -367,9 +375,9 @@
                                     <p class="card-text">
                                         Obtenu le 07 juillet 2022.
                                     </p>
-                                    <a href="./img/file-download/dnb-diplomes.pdf" class="btn bgorange btnorange  mb-2"
-                                        target="_blank">Voir la page</a>
-                                    <a href="./img/file-download/dnb-diplomes.pdf" class="btn btn-primary  mb-2"
+                                    <a href="./img/file-download/dnb-diplomes.pdf"
+                                        class="btn bgorange btnorange  mb-2 btnFont" target="_blank">Voir la page</a>
+                                    <a href="./img/file-download/dnb-diplomes.pdf" class="btn btn-primary  mb-2 btnFont"
                                         target="_blank"
                                         download="Diplôme national du brevet Hugo SIMON.pdf">Télécharger</a>
                                 </div>
@@ -389,9 +397,10 @@
                                         Obtenu le 20 juillet 2022.
                                     </p>
                                     <a href="./img/file-download/Attestation ASSR2.pdf"
-                                        class="btn bgorange btnorange  mb-2" target="_blank">Voir la page</a>
-                                    <a href="./img/file-download/Attestation ASSR2.pdf" class="btn btn-primary  mb-2"
-                                        target="_blank" download="Attestation ASSR 2 Hugo SIMON.pdf">Télécharger</a>
+                                        class="btn bgorange btnorange  mb-2 btnFont" target="_blank">Voir la page</a>
+                                    <a href="./img/file-download/Attestation ASSR2.pdf"
+                                        class="btn btn-primary  mb-2 btnFont" target="_blank"
+                                        download="Attestation ASSR 2 Hugo SIMON.pdf">Télécharger</a>
                                 </div>
                             </div>
                         </div>
@@ -405,7 +414,7 @@
 
         <section id="page5" class="py-5 section2 mb-5">
             <div class="container mb-5">
-                <h2 class="mb-0">Mes Stages</h2>
+                <h2 class="mb-0 titre">Mes Stages</h2>
             </div>
             <div class="container">
                 <div class="row">
@@ -477,7 +486,7 @@
 
         <section id="page6" class="py-5">
             <div class="container text-center">
-                <h2 class="fw-bold mb-4">Qui suis-je ?</h2>
+                <h2 class="fw-bold mb-4 titre">Qui suis-je ?</h2>
                 <p class="w-50 mx-auto">Je m’appelle Hugo, j’ai 16 ans et je suis en première RISC. Après un cursus
                     général,
                     j’ai
@@ -492,7 +501,7 @@
 
         <section id="page7" class="py-5 section3">
             <div class="container mb-5">
-                <h2 class="text-center">Mes réalisation</h2>
+                <h2 class="text-center titre">Mes réalisation</h2>
                 <p class="text-center">Une partie de ses sites seront disponibles sur <a href="#page9"
                         class="corange">mon
                         profil
@@ -591,8 +600,8 @@
 
         <section id="page8" class="py-5">
             <div class="container">
-                <h2>Mes Inspirations</h2>
-                <p class="mb-5">Les sites du moment qui m'inspirent</p>
+                <h2 class="titre">Mes Inspirations</h2>
+                <p class="mb-5 sousTitre">Les sites du moment qui m'inspirent</p>
 
                 <div class="mt-2 box">
                     <a href="https://www.resonancecommunication.com/projets" target="_blank"><img class="img"
@@ -618,7 +627,7 @@
             <div class="container">
                 <div class="row w-100 h-100">
                     <div class="col-12 bg-light rounded-3 test-shadow">
-                        <h3 class="text-center border-bottom mb-4">Me contacter</h3>
+                        <h3 class="text-center border-bottom mb-4 titre">Me contacter</h3>
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3 mb-md-0 text-center ">
                                 <a href="tel:+33768661249" class="hover-width"
@@ -646,36 +655,36 @@
         <div class="row mt-2 pb-5">
             <div
                 class="col-xs-12 col-sm-12   col-md-4 col-lg-4 text-center  border-responsive    mb-1 pb-1 mb-md-0 mb-md-0">
-                <h4 class="mb-3">Mes réseaux</h4>
+                <h4 class="mb-3 titre">Mes réseaux</h4>
                 <a href=" https://github.com/HSL-GliTcheur"><i class="fa-brands fa-github fa-xl mb-3"></i>
-                    Github</a><br>
+                    <span class="special">Github</span></a><br>
                 <a href="https://fr.linkedin.com/in/hugo-simon-633959233"><i
-                        class="fa-brands fa-linkedin fa-xl mb-3"></i> Linkedin</a>
+                        class="fa-brands fa-linkedin fa-xl mb-3"></i> <span class="special">Linkedin</span></a>
             </div>
             <div
                 class="col-xs-12 col-sm-12   col-md-4 col-lg-4 text-center  border-responsive   mb-1 pb-1 mb-md-0 mb-md-0">
-                <h4 class="mb-3">Tu veux revoir une partie ?</h4>
-                <a href="#">Home</a><br>
-                <a href="#page2">Compétences</a><br>
-                <a href="#TP3">CV</a><br>
-                <a href="#page4">Diplômes</a><br>
-                <a href="#page5">Stages</a><br>
-                <a href="#page7">Réalisation</a><br>
-                <a href="#page8">Inspirations</a>
+                <h4 class="mb-3 titre">Tu veux revoir une partie ?</h4>
+                <a href="#" class="special">Home</a><br>
+                <a href="#page2" class="special">Compétences</a><br>
+                <a href="#TP3" class="special">CV</a><br>
+                <a href="#page4" class="special">Diplômes</a><br>
+                <a href="#page5" class="special">Stages</a><br>
+                <a href="#page7" class="special">Réalisation</a><br>
+                <a href="#page8" class="special">Inspirations</a>
             </div>
             <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
-                <h4 class="mb-3">Mes autres sites !</h4>
-                <a href="#pagex">Site 1</a><br>
-                <a href="#pagex">Site 2</a><br>
-                <a href="#pagex">Site 3</a><br>
-                <a href="#pagex">Site 4</a><br>
-                <a href="#pagex">Site 5</a><br>
+                <h4 class="mb-3 titre">Mes autres sites !</h4>
+                <a href="#pagex" class="special">Site 1</a><br>
+                <a href="#pagex" class="special">Site 2</a><br>
+                <a href="#pagex" class="special">Site 3</a><br>
+                <a href="#pagex" class="special">Site 4</a><br>
+                <a href="#pagex" class="special">Site 5</a><br>
             </div>
         </div>
     </footer>
 
 
-    <a href="#" id="backToTop"><i class="fa-solid fa-arrow-up" style="color: white;"></i></a>
+    <a href="#" id="backToTop"><i class="fa-solid fa-arrow-up" style="color: orange;"></i></a>
 
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -1,7 +1,6 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
-
-
-
+@import 'animate.css';
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik:wght@300..900&family=Varela+Round&display=swap');
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -227,20 +226,20 @@
 
 .img {
     white-space: nowrap;
-    animation: Scroll 15s ease-in-out infinite;
+    animation: Scroll 30s ease-in-out infinite;
 }
 
 @keyframes Scroll {
     0% {
-        transform: translateX(-140%);
+        transform: translateX(-60rem);
     }
 
     50% {
-        transform: translateX(70%);
+        transform: translateX(10rem);
     }
 
     100% {
-        transform: translateX(-140%);
+        transform: translateX(-60rem);
     }
 }
 
@@ -265,4 +264,30 @@ footer {
     .border-responsive {
         border-right: 1px solid rgb(100, 100, 100);
     }
+}
+
+.titre {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 600 !important;
+    font-style: normal;
+}
+
+.sousTitre {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100 !important;
+    font-style: normal;
+}
+
+.special {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500 !important;
+    font-style: normal;
+}
+
+.btnFont {
+    font-family: "Lato", sans-serif;
+    font-weight: 400 !important;
+    font-style: normal;
 }

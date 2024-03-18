@@ -12252,6 +12252,11 @@ footer a {
   transition: 1s ease-in-out;
 }
 
+@media screen and (max-width: 870px) {
+  .deco {
+    display: none;
+  }
+}
 .deco:hover {
   right: -96vw;
   box-shadow: 0.5px 0.5px 10px white;

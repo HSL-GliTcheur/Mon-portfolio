@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- <link rel="stylesheet" href="./node_modules/animate.css/animate.css"> -->
     <link rel="stylesheet" href="./scss/style.css">
 </head>
 
@@ -79,14 +80,21 @@
             <div class="container">
                 <div class="row gy-4 align-items-center">
                     <div class="col-12 col-md-6">
-                        <h1 class="fw-bold">Je suis <b class="fw-bold">Hugo SIMON</b> Lycéen au Lycée
+                        <h1 class="fw-bold animate__animated animate__fadeInLeft">Je suis <b class="fw-bold">Hugo
+                                SIMON</b>
+                            Lycéen au
+                            Lycée
                             Saint-Jean-Baptiste de
                             La Salle.</h1>
-                        <h2 class="fw-light">Bienvenue sur mon site.</h2>
-                        <a href="#page6" class="btn bgorange btnorange mt-5 btnFont">Qui suis-je</a>
+                        <h2 class="fw-light animate__animated animate__fadeInLeft animate__delay-1s">Bienvenue sur mon
+                            site.</h2>
+                        <a href="#page6"
+                            class="btn bgorange btnorange mt-5 btnFont animate__animated animate__fadeInTopLeft animate__delay-2s">Qui
+                            suis-je</a>
                     </div>
                     <div class="col-12 col-md-6">
-                        <img class="rounded-1" src="../img/ImageCode.png" alt="image du code source" width="100%">
+                        <img class="rounded-1 animate__animated animate__fadeInRight animate__delay-1s"
+                            src="../img/ImageCode.png" alt="image du code source" width="100%">
                     </div>
                 </div>
             </div>
@@ -96,11 +104,13 @@
 
         <section id="page2" class="py-5 section">
             <div class="container">
-                <h2 class="mb-0 titre">Mes compétences</h2>
-                <h3 class="fw-light fs-5 sousTitre">Développement web et système d'exploitation </h3>
+                <h2 class="mb-0 titre wow animate__animated animate__zoomIn animate__delay-1s">Mes compétences</h2>
+                <h3 class="fw-light fs-5 sousTitre wow animate__animated animate__zoomIn animate__delay-1s">
+                    Développement
+                    web et système d'exploitation </h3>
                 <!-- Developpement -->
                 <div class="row align-items-center gy-4 mt-4">
-                    <div class="col-12 col-md-7">
+                    <div class="col-12 col-md-7 wow animate__animated animate__zoomIn animate__delay-1s">
 
                         <!-- Progress bar -->
                         <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
@@ -199,7 +209,8 @@
                         </div>
 
                     </div>
-                    <div class="col-12 offset-md-1 col-md-4">
+                    <div
+                        class="col-12 offset-md-1 col-md-4 wow animate__animated animate__fadeInRight animate__delay-1s">
                         <img src="./img/logo code.png" alt="écran montrant du code php" width="100%"
                             class="rounded-3 shadow">
                     </div>
@@ -209,9 +220,11 @@
                 <div class="row align-items-center gy-4 mt-4">
                     <div class="col-12 col-md-4">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Windows_Terminal_logo.svg/2560px-Windows_Terminal_logo.svg.png"
-                            alt="écran montrant des designs" width="100%" class="rounded-3 shadow">
+                            alt="écran montrant des designs" width="100%"
+                            class="rounded-3 shadow wow animate__animated animate__fadeInLeft animate__delay-1s">
                     </div>
-                    <div class="col-12 order-first offset-md-1 col-md-7 order-md-last">
+                    <div
+                        class="col-12 order-first offset-md-1 col-md-7 order-md-last wow animate__animated animate__zoomIn animate__delay-1s">
 
                         <!-- Progress bar -->
                         <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
@@ -283,8 +296,9 @@
 
         <section id="page3" class="py-5 section">
             <!-- Button trigger modal -->
-            <button type="button" class="btn bgorange btnorange mx-auto d-block btnFont" data-bs-toggle="modal"
-                data-bs-target="#MesCv">
+            <button type="button"
+                class="btn bgorange btnorange mx-auto d-block btnFont wow animate__animated animate__fadeIn animate__delay-1s"
+                data-bs-toggle="modal" data-bs-target="#MesCv">
                 Mes CV
             </button>
 
@@ -691,8 +705,15 @@
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script src="./node_modules/wow.js/dist/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
     <script src="./js/script.js"></script>
+
 </body>
 
 </html>

@@ -683,27 +683,3 @@ foreach ($all as $listall) {
 </body>
 
 </html>
-
-<?php
-try {
-    // On se connecte à MySQL
-    $mysqlClient = new PDO('mysql:host=localhost:3306;dbname=admin_cc;charset=utf8', 'xxtofoo_admin', '#admin2024');
-} catch (Exception $e) {
-    // En cas d'erreur, on affiche un message et on arrête tout
-    die ('Erreur : ' . $e->getMessage());
-}
-
-// On récupère tout le contenu de la table recipes
-$sqlQuery = 'SELECT * FROM h_os';
-$recipesStatement = $mysqlClient->prepare($sqlQuery);
-$recipesStatement->execute();
-$recipes = $recipesStatement->fetchAll();
-
-// On affiche chaque recette une à une
-?>
-<p>
-    <?php echo $recipe['titre']; ?>
-</p>
-<?php
-
-?>

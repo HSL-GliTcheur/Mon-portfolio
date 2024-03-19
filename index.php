@@ -8,16 +8,23 @@ try {
 }
 // Si tout va bien, on peut continuer
 
+
 // On récupère tout le contenu de la table h_compétences
 $sqlQuery = "SELECT * FROM `h_competences`";
 
-$alltatement = $mysqlClient->prepare($sqlQuery);
-$alltatement->execute();
-$all = $alltatement->fetchAll();
+$codetatement = $mysqlClient->prepare($sqlQuery);
+$codetatement->execute();
+$code = $codetatement->fetchAll();
 
-// On affiche chaque recette une à une
-foreach ($all as $listall) {
-}
+
+
+// On récupère tout le contenu de la table h_os
+$sqlQuery = "SELECT * FROM `h_os`";
+
+$ostatement = $mysqlClient->prepare($sqlQuery);
+$ostatement->execute();
+$os = $ostatement->fetchAll();
+
 ?>
 
 

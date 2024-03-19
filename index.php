@@ -33,6 +33,14 @@ $diplometatement = $mysqlClient->prepare($sqlQuery);
 $diplometatement->execute();
 $diplome = $diplometatement->fetchAll();
 
+
+// On récupère tout le contenu de la table h_stages
+$sqlQuery = "SELECT * FROM `h_stages`";
+
+$stagetatement = $mysqlClient->prepare($sqlQuery);
+$stagetatement->execute();
+$stage = $stagetatement->fetchAll();
+
 ?>
 
 
@@ -332,72 +340,29 @@ $diplome = $diplometatement->fetchAll();
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12   col-md-6 col-lg-6     mb-xs-5 mb-sm-5  mb-5">
-                        <div
-                            class="col stage rounded-3 shadow w-auto wow animate__animated animate__fadeInLeft animate__delay-1s">
-                            <div class="row bg-sombre">
-                                <div class="col-4 img-center"><img src="./img/logo-stage/collège-paul-fort.jpg" alt=""
-                                        width="100%"></div>
-                                <div class="col-8 fw-bold fs-5">Collège Paul Fort | 06 Novembre au 08 Décembre 2023
+                    <?php $z = 1;
+                    foreach ($stage as $liststage) { ?>
+                        <div class="col-xs-12 col-sm-12   col-md-6 col-lg-6     mb-xs-5 mb-sm-5  mb-5  <?php if ($z % 2 != 1)
+                            echo "space1"; ?>">
+                            <div
+                                class="col stage rounded-3 shadow w-auto wow animate__animated animate__fadeInLeft animate__delay-1s">
+                                <div class="row bg-sombre">
+                                    <div class="col-4 img-center"><img
+                                            src="./img/logo-stage/<?php echo $liststage['image']; ?>" alt="" width="100%">
+                                    </div>
+                                    <div class="col-8 fw-bold fs-5">
+                                        <?php echo $liststage['titre']; ?>
+                                    </div>
+                                </div>
+                                <div id="TP4" class="row h-100 bar-top mt-1 mb-3" style="padding-left: 5px;">
+                                    <?php echo $liststage['description']; ?>
                                 </div>
                             </div>
-                            <div id="TP4" class="row h-100 bar-top mt-1 mb-3" style="padding-left: 5px;">
-                                - Paramétrage et installation de Windows<br>
-                                - Utilisation d’un serveur<br>
-                                - Gestion des utilisateurs windows (Editeur de registre, IACA)
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12   col-md-6 col-lg-6     mb-xs-5 mb-sm-5  mb-5 space1">
-                        <div
-                            class="col stage rounded-3 shadow w-auto wow animate__animated animate__fadeInRight animate__delay-1s">
-                            <div class="row bg-sombre">
-                                <div class="col-4 img-center"><img src="./img/logo-stage/Logo-VIVESCIA.png" alt=""
-                                        width="100%"></div>
-                                <div class="col-8 fw-bold fs-5">Entreprise VIVESCIA | 12 Juin au 07 Juillet 2023</div>
-                            </div>
-                            <div id="TP5" class="row h-100 bar-top mt-1 mb-3" style="padding-left: 5px;">
-                                - Mettre en images des ordinateurs<br>
-                                - Remplacement d’ordinateurs sur les sites<br>
-                                - Tri du matériel défectueux
+                        <?php $z++;
+                    } ?>
 
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12   col-md-6 col-lg-6     mb-xs-5 mb-sm-5  mb-5">
-                        <div
-                            class="col stage rounded-3 shadow w-auto wow animate__animated animate__fadeInLeft animate__delay-1s">
-                            <div class="row bg-sombre">
-                                <div class="col-4 img-center"><img src="./img/logo-stage/Nutab-logo.png" alt=""
-                                        width="100%"></div>
-                                <div class="col-8 fw-bold fs-5">Entreprise NUTAB | 7 au 18 Mars 2021</div>
-                            </div>
-                            <div id="TP6" class="row h-100 bar-top mt-1 mb-3" style="padding-left: 5px;">
-                                - Développer des sites internet pour les clients<br>
-                                - Mettre en avant le site sur les réseaux sociaux
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12   col-md-6 col-lg-6     mb-xs-5 mb-sm-5  mb-5 space1">
-                        <div
-                            class="col stage rounded-3 shadow w-auto wow animate__animated animate__fadeInRight animate__delay-1s">
-                            <div class="row bg-sombre">
-                                <div class="col-4 img-center"><img src="./img/logo-stage/Lantana-logo.png" alt=""
-                                        width="100%">
-                                </div>
-                                <div class="col-8 fw-bold fs-5">Entreprise Lantana | 29 novembre au 3 décembre 2021
-                                </div>
-                            </div>
-                            <div class="row h-100 bar-top mt-1 mb-3" style="padding-left: 5px;">
-                                - Intervention chez des particuliers <br>
-                                - Utilisation de plusieurs outils (souffleur, taille-haie)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- Qui suis-je -->

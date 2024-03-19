@@ -25,6 +25,14 @@ $ostatement = $mysqlClient->prepare($sqlQuery);
 $ostatement->execute();
 $os = $ostatement->fetchAll();
 
+
+// On récupère tout le contenu de la table h_diplomes
+$sqlQuery = "SELECT * FROM `h_diplomes`";
+
+$diplometatement = $mysqlClient->prepare($sqlQuery);
+$diplometatement->execute();
+$diplome = $diplometatement->fetchAll();
+
 ?>
 
 
@@ -284,71 +292,32 @@ $os = $ostatement->fetchAll();
                 </div>
                 <div class="container">
                     <div class="row g-5 align-items-end">
-
-                        <div
-                            class="col-xs-12 col-sm-6 col-md-4 col-lg-4 wow animate__animated animate__flipInX animate__delay-2s ">
-                            <div class="card">
-                                <div class="card-header fw-bold text-center">
-                                    Pix
-                                </div>
-                                <img src="./img/pix-certif-crop.png" class="card-img-top mobile-view border-bottom"
-                                    alt="certification Pix">
-                                <div class="blur"></div>
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        Obtenu le 23 mai 2022.
-                                    </p>
-                                    <a href="./img/file-download/pix-certif.pdf"
-                                        class="btn bgorange btnorange mb-2 btnFont" target="_blank">Voir la page</a>
-                                    <a href="./img/file-download/pix-certif.pdf" class="btn btn-primary  mb-2 btnFont"
-                                        target="_blank" download="Certification PIX Hugo SIMON">Télécharger</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-xs-12 col-sm-6 col-md-4 col-lg-4 wow animate__animated animate__flipInX animate__delay-1s">
-                            <div class="card">
-                                <div class="card-header fw-bold text-center">
-                                    DIPLÔME NATIONAL DU BREVET
-                                </div>
-                                <img src="./img/dnb-diplomes-1.jpg" class="card-img-top mobile-view border-bottom"
-                                    alt="DIPLÔME NATIONAL DU BREVET">
-                                <div class="blur"></div>
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        Obtenu le 07 juillet 2022.
-                                    </p>
-                                    <a href="./img/file-download/dnb-diplomes.pdf"
-                                        class="btn bgorange btnorange  mb-2 btnFont" target="_blank">Voir la page</a>
-                                    <a href="./img/file-download/dnb-diplomes.pdf" class="btn btn-primary  mb-2 btnFont"
-                                        target="_blank"
-                                        download="Diplôme national du brevet Hugo SIMON.pdf">Télécharger</a>
+                        <?php foreach ($diplome as $listdiplome) { ?>
+                            <div
+                                class="col-xs-12 col-sm-6 col-md-4 col-lg-4 wow animate__animated animate__flipInX animate__delay-2s ">
+                                <div class="card">
+                                    <div class="card-header fw-bold text-center">
+                                        <?php echo $listdiplome['titre']; ?>
+                                    </div>
+                                    <div style="max-height: 150px; overflow: hidden;">
+                                        <img src="./img/<?php echo $listdiplome['image']; ?>"
+                                            class="card-img-top mobile-view border-bottom" alt="certification Pix">
+                                    </div>
+                                    <div class="blur"></div>
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            <?php echo $listdiplome['date']; ?>
+                                        </p>
+                                        <a href="./img/file-download/<?php echo $listdiplome['page']; ?>"
+                                            class="btn bgorange btnorange mb-2 btnFont" target="_blank">Voir la page</a>
+                                        <a href="./img/file-download/<?php echo $listdiplome['telechargement']; ?>"
+                                            class="btn btn-primary  mb-2 btnFont" target="_blank"
+                                            download="Certification PIX Hugo SIMON">Télécharger</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
 
-                        <div
-                            class="col-xs-12 col-sm-6 col-md-4 col-lg-4 wow animate__animated animate__flipInX animate__delay-2s">
-                            <div class="card">
-                                <div class="card-header fw-bold text-center">
-                                    ASSR2
-                                </div>
-                                <img src="./img/Attestation-ASSR2.png" class="card-img-top mobile-view border-bottom"
-                                    alt="certification Attestation ASSR2">
-                                <div class="blur"></div>
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        Obtenu le 20 juillet 2022.
-                                    </p>
-                                    <a href="./img/file-download/Attestation ASSR2.pdf"
-                                        class="btn bgorange btnorange  mb-2 btnFont" target="_blank">Voir la page</a>
-                                    <a href="./img/file-download/Attestation ASSR2.pdf"
-                                        class="btn btn-primary  mb-2 btnFont" target="_blank"
-                                        download="Attestation ASSR 2 Hugo SIMON.pdf">Télécharger</a>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>

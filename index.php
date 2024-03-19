@@ -1,3 +1,27 @@
+<?php
+try {
+    // On se connecte à MySQL
+    $mysqlClient = new PDO('mysql:host=localhost:3306;dbname=admin_cc;charset=utf8', 'xxtofoo_admin', '#admin2024');
+} catch (Exception $e) {
+    // En cas d'erreur, on affiche un message et on arrête tout
+    die ('Erreur : ' . $e->getMessage());
+}
+// Si tout va bien, on peut continuer
+
+// On récupère tout le contenu de la table h_compétences
+$sqlQuery = "SELECT * FROM `h_competences`";
+
+$alltatement = $mysqlClient->prepare($sqlQuery);
+$alltatement->execute();
+$all = $alltatement->fetchAll();
+
+// On affiche chaque recette une à une
+foreach ($all as $listall) {
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -113,100 +137,30 @@
                     <div class="col-12 col-md-7 wow animate__animated animate__zoomIn animate__delay-1s">
 
                         <!-- Progress bar -->
-                        <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fab fa-html5 fa-2x me-3 corange" aria-hidden="true"></i>
-                                        <p class="fw-bold m-0">HTML5</p>
+                        <?php foreach ($all as $listall) { ?>
+                            <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
+                                <div class="row align-items-center">
+                                    <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fab <?php echo $listall['icon']; ?> fa-2x me-3 corange"
+                                                aria-hidden="true"></i>
+                                            <p class="fw-bold m-0">
+                                                <?php echo $listall['titre']; ?>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress" data-bs-toggle="tooltip" title=""
-                                        data-bs-original-title="75%">
-                                        <div class="progress-bar w-75 bgorange" role="progressbar" aria-valuenow="75"
-                                            aria-valuemin="0" aria-valuemax="100">
+                                    <div class="col">
+                                        <div class="progress" data-bs-toggle="tooltip" title=""
+                                            data-bs-original-title="<?php echo $listall['pourcentage']; ?>%">
+                                            <div class="progress-bar w-<?php echo $listall['pourcentage']; ?> bgorange"
+                                                role="progressbar" aria-valuenow="<?php echo $listall['pourcentage']; ?>"
+                                                aria-valuemin="0" aria-valuemax="100">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fab fa-css3-alt fa-2x me-3 corange" aria-hidden="true"></i>
-                                        <p class="fw-bold m-0">CSS3</p>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress" data-bs-toggle="tooltip" title=""
-                                        data-bs-original-title="50%">
-                                        <div class="progress-bar w-50 bgorange" role="progressbar" aria-valuenow="50"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fab fa-js fa-2x me-3 corange" aria-hidden="true"></i>
-                                        <p class="fw-bold m-0">JS</p>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress" data-bs-toggle="tooltip" title=""
-                                        data-bs-original-title="25%">
-                                        <div class="progress-bar w-25 bgorange" role="progressbar" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fab fa-php fa-2x me-3 corange" aria-hidden="true"></i>
-                                        <p class="fw-bold m-0">PHP</p>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress" data-bs-toggle="tooltip" title=""
-                                        data-bs-original-title="25%">
-                                        <div class="progress-bar w-25 bgorange" role="progressbar" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fab fa-sass fa-2x me-3 corange" aria-hidden="true"></i>
-                                        <p class="fw-bold m-0">SASS</p>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress" data-bs-toggle="tooltip" title=""
-                                        data-bs-original-title="50%">
-                                        <div class="progress-bar w-50 bgorange" role="progressbar" aria-valuenow="50"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
 
                     </div>
                     <div
@@ -746,11 +700,10 @@ $recipesStatement->execute();
 $recipes = $recipesStatement->fetchAll();
 
 // On affiche chaque recette une à une
-foreach ($recipes as $recipe) {
-    ?>
-    <p>
-        <?php echo $recipe['titre']; ?>
-    </p>
-    <?php
-}
+?>
+<p>
+    <?php echo $recipe['titre']; ?>
+</p>
+<?php
+
 ?>

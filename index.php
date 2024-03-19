@@ -137,23 +137,23 @@ foreach ($all as $listall) {
                     <div class="col-12 col-md-7 wow animate__animated animate__zoomIn animate__delay-1s">
 
                         <!-- Progress bar -->
-                        <?php foreach ($all as $listall) { ?>
+                        <?php foreach ($code as $listcode) { ?>
                             <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
                                 <div class="row align-items-center">
                                     <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
                                         <div class="d-flex align-items-center">
-                                            <i class="fab <?php echo $listall['icon']; ?> fa-2x me-3 corange"
+                                            <i class="fab <?php echo $listcode['icon']; ?> fa-2x me-3 corange"
                                                 aria-hidden="true"></i>
                                             <p class="fw-bold m-0">
-                                                <?php echo $listall['titre']; ?>
+                                                <?php echo $listcode['titre']; ?>
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="progress" data-bs-toggle="tooltip" title=""
-                                            data-bs-original-title="<?php echo $listall['pourcentage']; ?>%">
-                                            <div class="progress-bar w-<?php echo $listall['pourcentage']; ?> bgorange"
-                                                role="progressbar" aria-valuenow="<?php echo $listall['pourcentage']; ?>"
+                                            data-bs-original-title="<?php echo $listcode['pourcentage']; ?>%">
+                                            <div class="progress-bar w-<?php echo $listcode['pourcentage']; ?> bgorange"
+                                                role="progressbar" aria-valuenow="<?php echo $listcode['pourcentage']; ?>"
                                                 aria-valuemin="0" aria-valuemax="100">
                                             </div>
                                         </div>
@@ -181,65 +181,30 @@ foreach ($all as $listall) {
                         class="col-12 order-first offset-md-1 col-md-7 order-md-last wow animate__animated animate__zoomIn animate__delay-1s">
 
                         <!-- Progress bar -->
-                        <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fab fa-windows fa-2x me-3 corange" aria-hidden="true"></i>
-                                        <p class="fw-bold m-0" style="font-size: 0.8rem;">Windows</p>
+                        <?php foreach ($os as $listos) { ?>
+                            <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
+                                <div class="row align-items-center">
+                                    <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fab <?php echo $listos['icon']; ?> fa-2x me-3 corange"
+                                                aria-hidden="true"></i>
+                                            <p class="fw-bold m-0" style="font-size: 0.8rem;">
+                                                <?php echo $listos['titre']; ?>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress" data-bs-toggle="tooltip" title=""
-                                        data-bs-original-title="75%">
-                                        <div class="progress-bar w-75 bgorange" role="progressbar" aria-valuenow="75"
-                                            aria-valuemin="0" aria-valuemax="100">
+                                    <div class="col">
+                                        <div class="progress" data-bs-toggle="tooltip" title=""
+                                            data-bs-original-title="<?php echo $listos['pourcentage']; ?>%">
+                                            <div class="progress-bar w-<?php echo $listos['pourcentage']; ?> bgorange"
+                                                role="progressbar" aria-valuenow="<?php echo $listos['pourcentage']; ?>"
+                                                aria-valuemin="0" aria-valuemax="100">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-brands fa-linux fa-2xl me-3 corange" aria-hidden="true"></i>
-                                        <p class="fw-bold m-0">Linux</p>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress" data-bs-toggle="tooltip" title=""
-                                        data-bs-original-title="50%">
-                                        <div class="progress-bar w-50 bgorange role=" progressbar" aria-valuenow="50"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-brands fa-apple fa-2xl me-3 corange" aria-hidden="true"></i>
-                                        <p class="fw-bold m-0">Mac os</p>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress" data-bs-toggle="tooltip" title=""
-                                        data-bs-original-title="25%">
-                                        <div id="TP3" class="progress-bar w-25 bgorange" role="progressbar"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
+                        <?php } ?>
                     </div>
                 </div>
 

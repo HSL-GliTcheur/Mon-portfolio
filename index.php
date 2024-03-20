@@ -350,8 +350,8 @@ $realisation = $realisationtatement->fetchAll();
                 <div class="row">
                     <?php $z = 1;
                     foreach ($stage as $liststage) { ?>
-                        <div class="col-xs-12 col-sm-12   col-md-6 col-lg-6     mb-xs-5 mb-sm-5  mb-5  <?php if ($z % 2 != 1)
-                            echo "space1"; ?>">
+                        <div id="TP<?php echo $liststage['id']; ?>" class="col-xs-12 col-sm-12   col-md-6 col-lg-6     mb-xs-5 mb-sm-5  mb-5  <?php if ($z % 2 != 1)
+                               echo "space1"; ?>">
                             <div
                                 class="col stage rounded-3 shadow w-auto wow animate__animated animate__fadeInLeft animate__delay-1s">
                                 <div class="row bg-sombre">
@@ -362,8 +362,7 @@ $realisation = $realisationtatement->fetchAll();
                                         <?php echo $liststage['titre']; ?>
                                     </div>
                                 </div>
-                                <div id="TP<?php echo $liststage['id']; ?>" class="row h-100 bar-top mt-1 mb-3"
-                                    style="padding-left: 5px;">
+                                <div class="row h-100 bar-top mt-1 mb-3" style="padding-left: 5px;">
                                     <?php echo $liststage['description']; ?>
                                 </div>
                             </div>

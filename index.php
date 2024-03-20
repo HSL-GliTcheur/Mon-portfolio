@@ -49,6 +49,14 @@ $realisationtatement = $mysqlClient->prepare($sqlQuery);
 $realisationtatement->execute();
 $realisation = $realisationtatement->fetchAll();
 
+
+// On récupère tout le contenu de la table h_inspiration
+$sqlQuery = "SELECT * FROM `h_inspiration`";
+
+$inspirationtatement = $mysqlClient->prepare($sqlQuery);
+$inspirationtatement->execute();
+$inspiration = $inspirationtatement->fetchAll();
+
 ?>
 
 
@@ -486,19 +494,18 @@ $realisation = $realisationtatement->fetchAll();
                     moment qui m'inspirent</p>
 
 
-                <div class="mt-2 row inspirations">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-right: 30px; margin-bottom: 30px;">
-                        <img src="./img/Expo-site/Inspiration1.png" alt="" width="240px">
-                        <p class="mt-2">Mon site</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-right: 30px; margin-bottom: 30px;">
-                        <img src="./img/Expo-site/Inspiration1.png" alt="" width="240px">
-                        <p class="mt-2">Mon site</p>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-right: 30px; margin-bottom: 30px;">
-                        <img src="./img/Expo-site/Inspiration1.png" alt="" width="240px">
-                        <p class="mt-2">Mon site</p>
-                    </div>
+                <div class="mt-2 row justify-content-md-center">
+                    <?php foreach ($inspiration as $listinspiration) { ?>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 wow animate__animated animate__zoomIn animate__delay-1s"
+                            style="margin-right: 30px; margin-bottom: 30px;">
+                            <a href="<?php echo $listinspiration['lien']; ?>" target="_blank"><img
+                                    src="./img/Expo-site/<?php echo $listinspiration['image']; ?>" alt="" width="240px"></a>
+                            <p class="mt-2">
+                                <?php echo $listinspiration['titre']; ?>
+                            </p>
+                        </div>
+                    <?php } ?>
+
                 </div>
             </div>
         </section>

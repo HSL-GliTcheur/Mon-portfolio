@@ -405,12 +405,13 @@ $realisation = $realisationtatement->fetchAll();
             <div class="container wow animate__animated animate__backInUp animate__slow">
                 <div id="carouselExampleCaptions" class="carousel carousel-dark slide contour" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
+                        <?php $data = 0;
+                        foreach ($realisation as $listrealisation) { ?>
+                            <button type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide-to="<?php echo $data; ?>" class="active" aria-current="true"
+                                aria-label="Slide 1"></button>
+                            <?php $data++;
+                        } ?>
                     </div>
                     <div class="carousel-inner">
                         <?php foreach ($realisation as $listrealisation) { ?>
@@ -419,14 +420,6 @@ $realisation = $realisationtatement->fetchAll();
                                     alt="<?php echo $listrealisation['titre']; ?>">
                             </div>
                         <?php } ?>
-
-                        <div class="carousel-item" data-bs-interval="5000"> <!--  5s -->
-                            <img src="./img/temp.png" class="d-block w-100" alt="...">
-                        </div>
-
-                        <div class="carousel-item" data-bs-interval="5000"> <!--  5s -->
-                            <img src="./img/temp.png" class="d-block w-100" alt="...">
-                        </div>
 
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                             data-bs-slide="prev">
@@ -444,16 +437,28 @@ $realisation = $realisationtatement->fetchAll();
 
 
                 <div class="accordion mt-5" id="accordionExample">
-                    <?php foreach ($realisation as $listrealisation) { ?>
+                    <?php $active = 1;
+                    foreach ($realisation as $listrealisation) { ?>
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <h2 class="accordion-header"> <!-- ajouter collapsed pour la 2 -->
+                                <button class="accordion-button <?php if ($active == 1) {
+                                    echo "";
+                                } else {
+                                    echo "collapsed";
+                                }
+                                ?>" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse<?php echo $listrealisation['data']; ?>" aria-expanded="false"
+                                    aria-controls="collapse<?php echo $listrealisation['data']; ?>">
                                     <?php echo $listrealisation['titre']; ?>
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show"
-                                data-bs-parent="#accordionExample">
+                            <div id="collapse<?php echo $listrealisation['data']; ?>" class="accordion-collapse collapse <?php if ($active == 1) {
+                                   echo "show";
+                               } else {
+                                   echo "";
+                               }
+                               ?>" data-bs-parent="#accordionExample">
+                                <!--  reitrer le show pour la 2 -->
                                 <div class="accordion-body">
                                     <?php echo $listrealisation['description']; ?> <br>
                                     <a href="<?php echo $listrealisation['lien']; ?>">
@@ -462,33 +467,8 @@ $realisation = $realisationtatement->fetchAll();
                                 </div>
                             </div>
                         </div>
-                    <?php } ?>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Deuxième site en exposistion
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Aucun site disponibles pour le moment.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Troisième site en exposistion
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Aucun site disponibles pour le moment.
-                            </div>
-                        </div>
-                    </div>
+                        <?php $active++;
+                    } ?>
                 </div>
             </div>
 

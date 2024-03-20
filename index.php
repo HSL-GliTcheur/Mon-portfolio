@@ -227,7 +227,7 @@ $inspiration = $inspirationtatement->fetchAll();
                                         <div class="d-flex align-items-center">
                                             <i class="fab <?php echo $listos['icon']; ?> fa-2x me-3 corange"
                                                 aria-hidden="true"></i>
-                                            <p class="fw-bold m-0">
+                                            <p class="fw-bold m-0" style="font-size: <?php echo $listos['taille']; ?>;">
                                                 <?php echo $listos['titre']; ?>
                                             </p>
                                         </div>

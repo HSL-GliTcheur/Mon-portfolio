@@ -486,20 +486,19 @@ $realisation = $realisationtatement->fetchAll();
                     moment qui m'inspirent</p>
 
 
-                <div class="mt-2 box">
-                    <a href="https://www.resonancecommunication.com/projets" target="_blank"><img class="img"
-                            src="./img/Expo-site/Site1.png" alt="" width="200px"></a>
-                    <a href="https://www.renflowdesigns.com/our-work" target="_blank"><img class="img"
-                            src="./img/Expo-site/Site2.png" alt="" width="200px"></a>
-                    <a href="https://google.fr" target="_blank"><img class="img" src="./img/Mon site.png" alt=""
-                            width="200px"></a>
-                    <a href="https://google.fr" target="_blank"><img class="img" src="./img/Mon site.png" alt=""
-                            width="200px"></a>
-                    <a href="https://google.fr" target="_blank"><img class="img" src="./img/Mon site.png" alt=""
-                            width="200px"></a>
-                    <a href="https://google.fr" target="_blank"><img class="img" src="./img/Mon site.png" alt=""
-                            width="200px"></a>
-
+                <div class="mt-2 row inspirations">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-right: 30px; margin-bottom: 30px;">
+                        <img src="./img/Expo-site/Inspiration1.png" alt="" width="240px">
+                        <p class="mt-2">Mon site</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-right: 30px; margin-bottom: 30px;">
+                        <img src="./img/Expo-site/Inspiration1.png" alt="" width="240px">
+                        <p class="mt-2">Mon site</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-right: 30px; margin-bottom: 30px;">
+                        <img src="./img/Expo-site/Inspiration1.png" alt="" width="240px">
+                        <p class="mt-2">Mon site</p>
+                    </div>
                 </div>
             </div>
         </section>

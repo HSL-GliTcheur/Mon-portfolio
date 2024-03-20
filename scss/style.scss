@@ -216,15 +216,6 @@
     overflow: hidden;
 }
 
-.box {
-    width: 85%;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    height: 870px;
-    margin: auto;
-}
-
 .img {
     white-space: nowrap;
     animation: Scroll 30s ease-in-out infinite;
@@ -264,6 +255,13 @@ footer {
 @media screen and (min-width: 768px) {
     .border-responsive {
         border-right: 1px solid rgb(100, 100, 100);
+    }
+}
+
+
+@media screen and (min-width: 510px) {
+    .inspirations {
+        justify-content: center;
     }
 }
 

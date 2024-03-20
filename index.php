@@ -179,11 +179,11 @@ $inspiration = $inspirationtatement->fetchAll();
                         <?php foreach ($code as $listcode) { ?>
                             <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
                                 <div class="row align-items-center">
-                                    <div class="col-5 col-sm-4 col-lg-3 col-xl-2">
+                                    <div class="col-5 col-sm-4 col-lg-3 col-xl-3">
                                         <div class="d-flex align-items-center">
                                             <i class="fab <?php echo $listcode['icon']; ?> fa-2x me-3 corange"
                                                 aria-hidden="true"></i>
-                                            <p class="fw-bold m-0" style="font-size: 0.8rem;">
+                                            <p class="fw-bold m-0">
                                                 <?php echo $listcode['titre']; ?>
                                             </p>
                                         </div>

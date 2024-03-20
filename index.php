@@ -41,6 +41,14 @@ $stagetatement = $mysqlClient->prepare($sqlQuery);
 $stagetatement->execute();
 $stage = $stagetatement->fetchAll();
 
+
+// On récupère tout le contenu de la table h_realisation
+$sqlQuery = "SELECT * FROM `h_realisation`";
+
+$realisationtatement = $mysqlClient->prepare($sqlQuery);
+$realisationtatement->execute();
+$realisation = $realisationtatement->fetchAll();
+
 ?>
 
 
@@ -405,10 +413,12 @@ $stage = $stagetatement->fetchAll();
                             aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-
-                        <div class="carousel-item active" data-bs-interval="20000"> <!--  20s -->
-                            <video controls autoplay="true" loop src="./img/test-site.mp4" class="d-block w-100">
-                        </div>
+                        <?php foreach ($realisation as $listrealisation) { ?>
+                            <div class="carousel-item active" data-bs-interval="5000"> <!--  5s -->
+                                <img src="./img/realisation/<?php echo $listrealisation['image']; ?>" class="d-block w-100"
+                                    alt="<?php echo $listrealisation['titre']; ?>">
+                            </div>
+                        <?php } ?>
 
                         <div class="carousel-item" data-bs-interval="5000"> <!--  5s -->
                             <img src="./img/temp.png" class="d-block w-100" alt="...">
@@ -434,20 +444,25 @@ $stage = $stagetatement->fetchAll();
 
 
                 <div class="accordion mt-5" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Premier site en exposistion
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Aucun site disponibles pour le moment.
+                    <?php foreach ($realisation as $listrealisation) { ?>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <?php echo $listrealisation['titre']; ?>
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <?php echo $listrealisation['description']; ?> <br>
+                                    <a href="<?php echo $listrealisation['lien']; ?>">
+                                        <?php echo $listrealisation['titre']; ?>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"

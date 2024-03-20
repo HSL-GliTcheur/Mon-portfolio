@@ -557,11 +557,11 @@ $realisation = $realisationtatement->fetchAll();
             </div>
             <div class=" col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
                 <h4 class="mb-3 titre">Mes autres sites !</h4>
-                <a href="#pagex" class="special">Site 1</a><br>
-                <a href="#pagex" class="special">Site 2</a><br>
-                <a href="#pagex" class="special">Site 3</a><br>
-                <a href="#pagex" class="special">Site 4</a><br>
-                <a href="#pagex" class="special">Site 5</a><br>
+                <?php foreach ($realisation as $listrealisation) { ?>
+                    <a href="<?php echo $listrealisation['lien']; ?>" class="special">
+                        <?php echo $listrealisation['titre']; ?>
+                    </a><br>
+                <?php } ?>
             </div>
         </div>
     </footer>

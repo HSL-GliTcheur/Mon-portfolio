@@ -97,7 +97,7 @@ $realisation = $realisationtatement->fetchAll();
                             <a class="nav-link" href="#page2">Compétences</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#TP3">CV</a>
+                            <a class="nav-link" href="#page3">CV</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#page4">Diplômes</a>
@@ -106,11 +106,11 @@ $realisation = $realisationtatement->fetchAll();
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">Stages</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#page5">Premier stage</a></li>
-                                <li><a class="dropdown-item" href="#TP4">Deuxième stage</a></li>
-                                <li><a class="dropdown-item" href="#TP5">Troisème stage</a></li>
-                                <li><a class="dropdown-item" href="#TP6">Quatrième stage</a></li>
-
+                                <?php foreach ($stage as $liststage) { ?>
+                                    <li><a class="dropdown-item text-center" href="#TP<?php echo $liststage['id']; ?>">
+                                            <?php echo $liststage['classement']; ?> stage
+                                        </a></li>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -362,7 +362,8 @@ $realisation = $realisationtatement->fetchAll();
                                         <?php echo $liststage['titre']; ?>
                                     </div>
                                 </div>
-                                <div id="TP4" class="row h-100 bar-top mt-1 mb-3" style="padding-left: 5px;">
+                                <div id="TP<?php echo $liststage['id']; ?>" class="row h-100 bar-top mt-1 mb-3"
+                                    style="padding-left: 5px;">
                                     <?php echo $liststage['description']; ?>
                                 </div>
                             </div>
@@ -549,7 +550,7 @@ $realisation = $realisationtatement->fetchAll();
                 <h4 class="mb-3 titre">Tu veux revoir une partie ?</h4>
                 <a href="#" class="special">Home</a><br>
                 <a href="#page2" class="special">Compétences</a><br>
-                <a href="#TP3" class="special">CV</a><br>
+                <a href="#page3" class="special">CV</a><br>
                 <a href="#page4" class="special">Diplômes</a><br>
                 <a href="#page5" class="special">Stages</a><br>
                 <a href="#page7" class="special">Réalisation</a><br>

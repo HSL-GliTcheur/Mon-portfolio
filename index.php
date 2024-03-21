@@ -183,7 +183,7 @@ $inspiration = $inspirationtatement->fetchAll();
                                         <div class="d-flex align-items-center">
                                             <i class="fab <?php echo $listcode['icon']; ?> fa-2x me-3 corange"
                                                 aria-hidden="true"></i>
-                                            <p class="fw-bold m-0" style="font-size: <?php echo $listcode['taille']; ?>;">
+                                            <p class="fw-bold m-0" style="font-size: <?php echo $listcode['taillef']; ?>;">
                                                 <?php echo $listcode['titre']; ?>
                                             </p>
                                         </div>

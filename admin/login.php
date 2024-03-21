@@ -77,7 +77,7 @@
 
     try {
         // On se connecte à MySQL
-        $mysqlClient = new PDO('mysql:host=localhost;dbname=portfolio;charset=utf8', 'root', '');
+        $mysqlClient = new PDO('mysql:host=localhost:3306;dbname=admin_cc;charset=utf8', 'xxtofoo_admin', '#admin2024');
     } catch (Exception $e) {
         // En cas d'erreur, on affiche un message et on arrête tout
         die ('Erreur : ' . $e->getMessage());
@@ -121,10 +121,10 @@
                 <button type="submit" name="ok">Se connecter</button>
                 <?php if (isset ($message)) {
                     ?>
-                <p>
-                    <?php echo $message; ?>
-                </p>
-                <?php
+                    <p>
+                        <?php echo $message; ?>
+                    </p>
+                    <?php
                 } ?>
             </div>
 

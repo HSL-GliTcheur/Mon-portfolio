@@ -47,13 +47,13 @@ $list->execute();
             $un = $final['titre'];
             $deux = $final['pourcentage'];
             $trois = $final['icon'];
-            $quatre = "";
+            $quatre = "taille";
             $cinq = "";
 
             $name1 = "titre";
             $name2 = "pourcentage";
             $name3 = "icon";
-            $name4 = "";
+            $name4 = "taille";
             $name5 = "";
         }
         if ($titre == "h_diplomes") {
@@ -77,8 +77,9 @@ $list->execute();
                 $listUn = $_POST['titre'];
                 $listDeux = $_POST['pourcentage'];
                 $listTrois = $_POST['icon'];
+                $listQuatre = $_POST['taille'];
 
-                $update = "UPDATE $titre SET titre='$listUn', pourcentage='$listDeux', icon='$listTrois' WHERE id='$id'";
+                $update = "UPDATE $titre SET titre='$listUn', pourcentage='$listDeux', icon='$listTrois' , taille='$listQuatre' WHERE id='$id'";
                 $stmt2 = $mysqlClient->prepare($update);
                 $stmt2->execute();
                 echo "<script> window.location.href='admin.php';</script>";

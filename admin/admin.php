@@ -151,6 +151,9 @@ $inspiration = $inspirationtatement->fetchAll();
                         <?php echo $competences['icon']; ?>
                     </td>
                     <td>
+                        <?php echo $competences['taille']; ?>
+                    </td>
+                    <td>
                         <a href="./update.php?edit=<?php echo $competences['id'] ?>&titre=h_competences"
                             class="btn btn-primary">Modifier</a>
                         <a href="./admin.php?sup=<?php echo $competences['id'] ?>" class="btn btn-danger">Suprimer</a>

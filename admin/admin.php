@@ -152,7 +152,7 @@ $inspiration = $inspirationtatement->fetchAll();
                         <?php echo $competences['icon']; ?>
                     </td>
                     <td>
-                        <a href="./upgrade.php?edit=<?php echo $competences['id'] ?>&titre=h_competences"
+                        <a href="./update.php?edit=<?php echo $competences['id'] ?>&titre=h_competences"
                             class="btn btn-primary">Modifier</a>
                         <a href="./admin.php?sup=<?php echo $competences['id'] ?>" class="btn btn-danger">Suprimer</a>
                     </td>
@@ -242,7 +242,7 @@ $inspiration = $inspirationtatement->fetchAll();
                         <?php echo $diplomes2['telechargement']; ?>
                     </td>
                     <td>
-                        <a href="./upgrade.php?edit=<?php echo $diplomes2['id'] ?>&titre=h_diplomes"
+                        <a href="./update.php?edit=<?php echo $diplomes2['id'] ?>&titre=h_diplomes"
                             class="btn btn-primary">Modifier</a>
                         <a href="./admin.php?sup=<?php echo $diplomes2['id'] ?>" class="btn btn-danger">Suprimer</a>
                     </td>

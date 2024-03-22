@@ -104,7 +104,7 @@ $inspiration = $inspirationtatement->fetchAll();
             $send->bindParam(":pourcentage", $pourcentageForm);
             $send->bindParam(":icon", $iconForm);
             $send->execute();
-            echo "<script> window.location.href='admin.php';</script>";
+            echo "<script> window.location.href='./admin.php';</script>";
         }
 
 
@@ -120,7 +120,7 @@ $inspiration = $inspirationtatement->fetchAll();
             $competenceSup = "DELETE FROM `h_competences` WHERE id='$id'";
             $deletecompetence = $mysqlClient->prepare($competenceSup);
             $deletecompetence->execute();
-            echo "<script> window.location.href='admin.php';</script>";
+            echo "<script> window.location.href='./admin.php';</script>";
         }
         ?>
     </div>
@@ -184,7 +184,7 @@ $inspiration = $inspirationtatement->fetchAll();
             // $send2->bindParam(":page", $pageForm2);
             // $send2->bindParam(":telechargement", $telechargementForm2);
             $send2->execute();
-            echo "<script> window.location.href='admin.php';</script>";
+            echo "<script> window.location.href='./admin.php';</script>";
         }
 
 
@@ -200,7 +200,7 @@ $inspiration = $inspirationtatement->fetchAll();
             $diplomesSup = "DELETE FROM `h_diplomes` WHERE id='$id'";
             $deletediplomes = $mysqlClient->prepare($diplomesSup);
             $deletediplomes->execute();
-            echo "<script> window.location.href='admin.php';</script>";
+            echo "<script> window.location.href='./admin.php';</script>";
         }
         ?>
     </div>

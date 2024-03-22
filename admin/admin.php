@@ -97,12 +97,9 @@ $inspiration = $inspirationtatement->fetchAll();
             $titreForm = $_POST['titre'];
             $pourcentageForm = $_POST['pourcentage'];
             $iconForm = $_POST['icon'];
-            $competence = "INSERT INTO `h_competences` (`titre`, `pourcentage`, `icon`) VALUES (:titre, :pourcentage, :icon)";
+            $competence = "INSERT INTO `h_competences` (`titre`, `pourcentage`, `icon`) VALUES ('$titreForm', '$pourcentageForm', '$iconForm')";
 
             $send = $mysqlClient->prepare($competence);
-            $send->bindParam(":titre", $titreForm);
-            $send->bindParam(":pourcentage", $pourcentageForm);
-            $send->bindParam(":icon", $iconForm);
             $send->execute();
             echo "<script> window.location.href='./admin.php';</script>";
         }
@@ -178,11 +175,6 @@ $inspiration = $inspirationtatement->fetchAll();
             $diplomes = "INSERT INTO `h_diplomes` (`titre`, `image`, `date`, `page`, `telechargement`) VALUES ('$titreForm2', '$imageForm2', '$dateForm2', '$pageForm2', '$telechargementForm2')";
 
             $send2 = $mysqlClient->prepare($diplomes);
-            // $send2->bindParam(":titre", $titreForm2);
-            // $send2->bindParam(":image", $imageForm2);
-            // $send2->bindParam(":date", $dateForm2);
-            // $send2->bindParam(":page", $pageForm2);
-            // $send2->bindParam(":telechargement", $telechargementForm2);
             $send2->execute();
             echo "<script> window.location.href='./admin.php';</script>";
         }

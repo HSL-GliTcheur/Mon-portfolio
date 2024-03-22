@@ -10,50 +10,50 @@ try {
 
 
 // On récupère tout le contenu de la table h_compétences
-$sqlQuery = "SELECT * FROM `h_competences`";
+$competence = "SELECT * FROM `h_competences`";
 
-$codetatement = $mysqlClient->prepare($sqlQuery);
+$codetatement = $mysqlClient->prepare($competence);
 $codetatement->execute();
 $code = $codetatement->fetchAll();
 
 
 
 // On récupère tout le contenu de la table h_os
-$sqlQuery = "SELECT * FROM `h_os`";
+$os = "SELECT * FROM `h_os`";
 
-$ostatement = $mysqlClient->prepare($sqlQuery);
+$ostatement = $mysqlClient->prepare($os);
 $ostatement->execute();
 $os = $ostatement->fetchAll();
 
 
 // On récupère tout le contenu de la table h_diplomes
-$sqlQuery = "SELECT * FROM `h_diplomes`";
+$diplome = "SELECT * FROM `h_diplomes`";
 
-$diplometatement = $mysqlClient->prepare($sqlQuery);
+$diplometatement = $mysqlClient->prepare($diplome);
 $diplometatement->execute();
 $diplome = $diplometatement->fetchAll();
 
 
 // On récupère tout le contenu de la table h_stages
-$sqlQuery = "SELECT * FROM `h_stages`";
+$stage = "SELECT * FROM `h_stages`";
 
-$stagetatement = $mysqlClient->prepare($sqlQuery);
+$stagetatement = $mysqlClient->prepare($stage);
 $stagetatement->execute();
 $stage = $stagetatement->fetchAll();
 
 
 // On récupère tout le contenu de la table h_realisation
-$sqlQuery = "SELECT * FROM `h_realisation`";
+$realisation = "SELECT * FROM `h_realisation`";
 
-$realisationtatement = $mysqlClient->prepare($sqlQuery);
+$realisationtatement = $mysqlClient->prepare($realisation);
 $realisationtatement->execute();
 $realisation = $realisationtatement->fetchAll();
 
 
 // On récupère tout le contenu de la table h_inspiration
-$sqlQuery = "SELECT * FROM `h_inspiration`";
+$inspiration = "SELECT * FROM `h_inspiration`";
 
-$inspirationtatement = $mysqlClient->prepare($sqlQuery);
+$inspirationtatement = $mysqlClient->prepare($inspiration);
 $inspirationtatement->execute();
 $inspiration = $inspirationtatement->fetchAll();
 

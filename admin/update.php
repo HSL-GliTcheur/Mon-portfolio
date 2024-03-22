@@ -47,7 +47,7 @@ $list->execute();
             $un = $final['titre'];
             $deux = $final['pourcentage'];
             $trois = $final['icon'];
-            $quatre = "taille";
+            $quatre = $final["taille"];
             $cinq = "";
 
             $name1 = "titre";

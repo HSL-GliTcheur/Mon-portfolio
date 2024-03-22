@@ -136,6 +136,7 @@ $inspiration = $inspirationtatement->fetchAll();
             <th>titre</th>
             <th>pourcentage</th>
             <th>icon</th>
+            <th>taille</th>
             <th>Action</th>
         </thead>
         <tbody>

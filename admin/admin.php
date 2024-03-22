@@ -97,7 +97,8 @@ $inspiration = $inspirationtatement->fetchAll();
             $titreForm = $_POST['titre'];
             $pourcentageForm = $_POST['pourcentage'];
             $iconForm = $_POST['icon'];
-            $competence = "INSERT INTO `h_competences` (`titre`, `pourcentage`, `icon`) VALUES ('$titreForm', '$pourcentageForm', '$iconForm')";
+            $tailleForm = $_POST['taille'];
+            $competence = "INSERT INTO `h_competences` (`titre`, `pourcentage`, `icon`, `taille`) VALUES ('$titreForm', '$pourcentageForm', '$iconForm', '$tailleForm')";
 
             $send = $mysqlClient->prepare($competence);
             $send->execute();
@@ -126,6 +127,7 @@ $inspiration = $inspirationtatement->fetchAll();
         <input type="text" placeholder="titre" name="titre">
         <input type="text" placeholder="pourcentage" name="pourcentage">
         <input type="text" placeholder="icon" name="icon">
+        <input type="text" placeholder="taille" name="taille">
         <input class="btn btn-success" type="submit" value="créer" name="competences">
     </form>
 

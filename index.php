@@ -404,7 +404,7 @@ $inspiration = $inspirationtatement->fetchAll();
                 <h2 class="text-center titre wow animate__animated animate__zoomIn animate__delay-1s">Mes réalisation
                 </h2>
                 <p class="text-center wow animate__animated animate__fadeInLeft animate__delay-1s">Une partie de ses
-                    sites seront disponibles sur <a href="#page9" class="corange">mon
+                    sites seront disponibles sur <a href="#pagex" class="corange">mon
                         profil
                         github</a></p>
             </div>

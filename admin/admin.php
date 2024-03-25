@@ -19,48 +19,6 @@ try {
 
 
 
-
-
-// On récupère tout le contenu de la table h_os
-$os = "SELECT * FROM `h_os`";
-
-$ostatement = $mysqlClient->prepare($os);
-$ostatement->execute();
-$os = $ostatement->fetchAll();
-
-
-// On récupère tout le contenu de la table h_diplomes
-$diplome = "SELECT * FROM `h_diplomes`";
-
-$diplometatement = $mysqlClient->prepare($diplome);
-$diplometatement->execute();
-$diplome = $diplometatement->fetchAll();
-
-
-// On récupère tout le contenu de la table h_stages
-$stage = "SELECT * FROM `h_stages`";
-
-$stagetatement = $mysqlClient->prepare($stage);
-$stagetatement->execute();
-$stage = $stagetatement->fetchAll();
-
-
-// On récupère tout le contenu de la table h_realisation
-$realisation = "SELECT * FROM `h_realisation`";
-
-$realisationtatement = $mysqlClient->prepare($realisation);
-$realisationtatement->execute();
-$realisation = $realisationtatement->fetchAll();
-
-
-// On récupère tout le contenu de la table h_inspiration
-$inspiration = "SELECT * FROM `h_inspiration`";
-
-$inspirationtatement = $mysqlClient->prepare($inspiration);
-$inspirationtatement->execute();
-$inspiration = $inspirationtatement->fetchAll();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -114,11 +72,15 @@ $inspiration = $inspirationtatement->fetchAll();
 
         // surpimer des lignes
         if (isset ($_GET['sup'])) {
-            $id = $_GET['sup'];
-            $competenceSup = "DELETE FROM `h_competences` WHERE id='$id'";
-            $deletecompetence = $mysqlClient->prepare($competenceSup);
-            $deletecompetence->execute();
-            echo "<script> window.location.href='./admin.php';</script>";
+            $titre = $_GET['titre'];
+            if ($titre == "h_competences") {
+
+                $id = $_GET['sup'];
+                $competenceSup = "DELETE FROM `h_competences` WHERE id='$id'";
+                $deletecompetence = $mysqlClient->prepare($competenceSup);
+                $deletecompetence->execute();
+                echo "<script> window.location.href='./admin.php';</script>";
+            }
         }
         ?>
     </div>
@@ -157,7 +119,8 @@ $inspiration = $inspirationtatement->fetchAll();
                     <td>
                         <a href="./update.php?edit=<?php echo $competences['id'] ?>&titre=h_competences"
                             class="btn btn-primary">Modifier</a>
-                        <a href="./admin.php?sup=<?php echo $competences['id'] ?>" class="btn btn-danger">Suprimer</a>
+                        <a href="./admin.php?sup=<?php echo $competences['id'] ?>&titre=h_competences"
+                            class="btn btn-danger">Suprimer</a>
                     </td>
                 </tr>
             <?php } ?>
@@ -165,6 +128,8 @@ $inspiration = $inspirationtatement->fetchAll();
     </table>
 
     <!-- ----------------------------------------------------  diplome ------------------------------------------------------------------------- -->
+
+
     <h3>Tableau diplômes :</h3>
 
     <!-- php -->
@@ -194,11 +159,14 @@ $inspiration = $inspirationtatement->fetchAll();
 
         // surpimer des lignes
         if (isset ($_GET['sup'])) {
-            $id = $_GET['sup'];
-            $diplomesSup = "DELETE FROM `h_diplomes` WHERE id='$id'";
-            $deletediplomes = $mysqlClient->prepare($diplomesSup);
-            $deletediplomes->execute();
-            echo "<script> window.location.href='./admin.php';</script>";
+            $titre2 = $_GET['titre'];
+            if ($titre2 == "h_diplomes") {
+                $id2 = $_GET['sup'];
+                $diplomesSup = "DELETE FROM `h_diplomes` WHERE id='$id2'";
+                $deletediplomes = $mysqlClient->prepare($diplomesSup);
+                $deletediplomes->execute();
+                echo "<script> window.location.href='./admin.php';</script>";
+            }
         }
         ?>
     </div>
@@ -242,17 +210,420 @@ $inspiration = $inspirationtatement->fetchAll();
                     <td>
                         <a href="./update.php?edit=<?php echo $diplomes2['id'] ?>&titre=h_diplomes"
                             class="btn btn-primary">Modifier</a>
-                        <a href="./admin.php?sup=<?php echo $diplomes2['id'] ?>" class="btn btn-danger">Suprimer</a>
+                        <a href="./admin.php?sup=<?php echo $diplomes2['id'] ?>&titre=h_diplomes"
+                            class="btn btn-danger">Suprimer</a>
                     </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
+
+    <!-- ----------------------------------------------------  inspiration ------------------------------------------------------------------------- -->
+
+
     <h3>Tableau inspiration :</h3>
+    <!-- php -->
+    <div>
+        <?php
+
+        // ajouter des lignes
+        if (isset ($_POST['inspirations'])) {
+            $titreForm3 = $_POST['titre'];
+            $imageForm3 = $_POST['image'];
+            $lienForm3 = $_POST['lien'];
+            $inspirations = "INSERT INTO `h_inspiration` (`titre`, `image`, `lien`) VALUES ('$titreForm3', '$imageForm3', '$lienForm3')";
+
+            $send3 = $mysqlClient->prepare($inspirations);
+            $send3->execute();
+            echo "<script> window.location.href='./admin.php';</script>";
+        }
+
+
+        //afficher un tableau
+        $inspiration = "SELECT * FROM `h_inspiration`";
+
+        $listinspiration = $mysqlClient->query($inspiration);
+
+
+        // surpimer des lignes
+        if (isset ($_GET['sup'])) {
+            $titre3 = $_GET['titre'];
+            if ($titre3 == "h_inspiration") {
+                $id3 = $_GET['sup'];
+                $inspirationsSup = "DELETE FROM `h_inspiration` WHERE id='$id3'";
+                $deleteinspirations = $mysqlClient->prepare($inspirationsSup);
+                $deleteinspirations->execute();
+                echo "<script> window.location.href='./admin.php';</script>";
+            }
+        }
+        ?>
+    </div>
+
+    <form action="" method="post" class="form-group">
+        <input type="text" placeholder="titre" name="titre">
+        <input type="text" placeholder="image" name="image">
+        <input type="text" placeholder="lien" name="lien">
+        <input class="btn btn-success" type="submit" value="créer" name="inspirations">
+    </form>
+
+    <table class="table">
+        <thead>
+            <th>titre</th>
+            <th>image</th>
+            <th>lien</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <?php foreach ($listinspiration as $inspirations2) { ?>
+                <tr>
+                    <td>
+                        <?php echo $inspirations2['titre']; ?>
+                    </td>
+                    <td>
+                        <?php echo $inspirations2['image']; ?>
+                    </td>
+                    <td>
+                        <?php echo $inspirations2['lien']; ?>
+                    </td>
+                    <td>
+                        <a href="./update.php?edit=<?php echo $inspirations2['id'] ?>&titre=h_inspiration"
+                            class="btn btn-primary">Modifier</a>
+                        <a href="./admin.php?sup=<?php echo $inspirations2['id'] ?>&titre=h_inspiration"
+                            class="btn btn-danger">Suprimer</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+
+    <!-- ----------------------------------------------------  os ------------------------------------------------------------------------- -->
+
+
     <h3>Tableau os :</h3>
+
+    <!-- php -->
+    <div>
+        <?php
+
+        // ajouter des lignes
+        if (isset ($_POST['os'])) {
+            $titreForm4 = $_POST['titre'];
+            $pourcentageForm4 = $_POST['pourcentage'];
+            $iconForm4 = $_POST['icon'];
+            $os = "INSERT INTO `h_os` (`titre`, `pourcentage`, `icon`) VALUES ('$titreForm4', '$pourcentageForm4', '$iconForm4')";
+
+            $send4 = $mysqlClient->prepare($os);
+            $send4->execute();
+            echo "<script> window.location.href='./admin.php';</script>";
+        }
+
+
+        //afficher un tableau
+        $os1 = "SELECT * FROM `h_os`";
+
+        $listos = $mysqlClient->query($os1);
+
+
+        // surpimer des lignes
+        if (isset ($_GET['sup'])) {
+            $titre4 = $_GET['titre'];
+            if ($titre4 == "h_os") {
+                $id4 = $_GET['sup'];
+                $osSup = "DELETE FROM `h_os` WHERE id='$id4'";
+                $deleteos = $mysqlClient->prepare($osSup);
+                $deleteos->execute();
+                echo "<script> window.location.href='./admin.php';</script>";
+            }
+        }
+        ?>
+    </div>
+
+    <form action="" method="post" class="form-group">
+        <input type="text" placeholder="titre" name="titre">
+        <input type="text" placeholder="pourcentage" name="pourcentage">
+        <input type="text" placeholder="icon" name="icon">
+        <input class="btn btn-success" type="submit" value="créer" name="os">
+    </form>
+
+    <table class="table">
+        <thead>
+            <th>titre</th>
+            <th>pourcentage</th>
+            <th>icon</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <?php foreach ($listos as $os2) { ?>
+                <tr>
+                    <td>
+                        <?php echo $os2['titre']; ?>
+                    </td>
+                    <td>
+                        <?php echo $os2['pourcentage']; ?>
+                    </td>
+                    <td>
+                        <?php echo $os2['icon']; ?>
+                    </td>
+                    <td>
+                        <a href="./update.php?edit=<?php echo $os2['id'] ?>&titre=h_os" class="btn btn-primary">Modifier</a>
+                        <a href="./admin.php?sup=<?php echo $os2['id'] ?>&titre=h_os" class="btn btn-danger">Suprimer</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <!-- ---------------------------------------------------- réalisation ------------------------------------------------------------------------- -->
+
+
     <h3>Tableau réalisation :</h3>
+
+    <!-- php -->
+    <div>
+        <?php
+
+        // ajouter des lignes
+        if (isset ($_POST['realisations'])) {
+            $titreForm5 = $_POST['titre'];
+            $imageForm5 = $_POST['image'];
+            $descriptionForm5 = $_POST['description'];
+            $lienForm5 = $_POST['lien'];
+            $dataForm5 = $_POST['data'];
+            $realisations = "INSERT INTO `h_realisation` (`titre`, `image`, `description`, `lien`, `data`) VALUES ('$titreForm5', '$imageForm5', '$descriptionForm5', '$lienForm5', '$dataForm5')";
+
+            $send5 = $mysqlClient->prepare($realisations);
+            $send5->execute();
+            echo "<script> window.location.href='./admin.php';</script>";
+        }
+
+
+        //afficher un tableau
+        $realisation = "SELECT * FROM `h_realisation`";
+
+        $listrealisation = $mysqlClient->query($realisation);
+
+
+        // surpimer des lignes
+        if (isset ($_GET['sup'])) {
+            $titre5 = $_GET['titre'];
+            if ($titre5 == "h_realisation") {
+                $id5 = $_GET['sup'];
+                $realisationSup = "DELETE FROM `h_realisation` WHERE id='$id5'";
+                $deleterealisation = $mysqlClient->prepare($realisationSup);
+                $deleterealisation->execute();
+                echo "<script> window.location.href='./admin.php';</script>";
+            }
+        }
+        ?>
+    </div>
+
+    <form action="" method="post" class="form-group">
+        <input type="text" placeholder="titre" name="titre">
+        <input type="text" placeholder="image" name="image">
+        <input type="text" placeholder="description" name="description">
+        <input type="text" placeholder="lien" name="lien">
+        <input type="text" placeholder="data" name="data">
+        <input class="btn btn-success" type="submit" value="créer" name="realisations">
+    </form>
+
+    <table class="table">
+        <thead>
+            <th>titre</th>
+            <th>image</th>
+            <th>description</th>
+            <th>lien</th>
+            <th>data</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <?php foreach ($listrealisation as $realisation2) { ?>
+                <tr>
+                    <td>
+                        <?php echo $realisation2['titre']; ?>
+                    </td>
+                    <td>
+                        <?php echo $realisation2['image']; ?>
+                    </td>
+                    <td>
+                        <?php echo $realisation2['description']; ?>
+                    </td>
+                    <td>
+                        <?php echo $realisation2['lien']; ?>
+                    </td>
+                    <td>
+                        <?php echo $realisation2['data']; ?>
+                    </td>
+                    <td>
+                        <a href="./update.php?edit=<?php echo $realisation2['id'] ?>&titre=h_realisation"
+                            class="btn btn-primary">Modifier</a>
+                        <a href="./admin.php?sup=<?php echo $realisation2['id'] ?>&titre=h_realisation"
+                            class="btn btn-danger">Suprimer</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <!-- ---------------------------------------------------- stages ------------------------------------------------------------------------- -->
+
+
     <h3>Tableau stages :</h3>
+
+    <!-- php -->
+    <div>
+        <?php
+
+        // ajouter des lignes
+        if (isset ($_POST['stages'])) {
+            $titreForm6 = $_POST['titre'];
+            $imageForm6 = $_POST['image'];
+            $descriptionForm6 = $_POST['description'];
+            $classementForm6 = $_POST['classement'];
+
+            $stages = "INSERT INTO `h_stages` (`titre`, `image`, `description`, `classement`) VALUES ('$titreForm6', '$imageForm6', '$descriptionForm6', '$classementForm6')";
+
+            $send6 = $mysqlClient->prepare($stages);
+            $send6->execute();
+            echo "<script> window.location.href='./admin.php';</script>";
+        }
+
+
+        //afficher un tableau
+        $stage = "SELECT * FROM `h_stages`";
+
+        $liststage = $mysqlClient->query($stage);
+
+
+        // surpimer des lignes
+        if (isset ($_GET['sup'])) {
+            $titre6 = $_GET['titre'];
+            if ($titre6 == "h_stages") {
+                $id6 = $_GET['sup'];
+                $stageSup = "DELETE FROM `h_stages` WHERE id='$id6'";
+                $deletestage = $mysqlClient->prepare($stageSup);
+                $deletestage->execute();
+                echo "<script> window.location.href='./admin.php';</script>";
+            }
+        }
+        ?>
+    </div>
+
+    <form action="" method="post" class="form-group">
+        <input type="text" placeholder="titre" name="titre">
+        <input type="text" placeholder="image" name="image">
+        <input type="text" placeholder="description" name="description">
+        <input type="text" placeholder="classement" name="classement">
+        <input class="btn btn-success" type="submit" value="créer" name="stages">
+    </form>
+
+    <table class="table">
+        <thead>
+            <th>titre</th>
+            <th>image</th>
+            <th>description</th>
+            <th>classement</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <?php foreach ($liststage as $stages2) { ?>
+                <tr>
+                    <td>
+                        <?php echo $stages2['titre']; ?>
+                    </td>
+                    <td>
+                        <?php echo $stages2['image']; ?>
+                    </td>
+                    <td>
+                        <?php echo $stages2['description']; ?>
+                    </td>
+                    <td>
+                        <?php echo $stages2['classement']; ?>
+                    </td>
+                    <td>
+                        <a href="./update.php?edit=<?php echo $stages2['id'] ?>&titre=h_stages"
+                            class="btn btn-primary">Modifier</a>
+                        <a href="./admin.php?sup=<?php echo $stages2['id'] ?>&titre=h_stages"
+                            class="btn btn-danger">Suprimer</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <!-- ---------------------------------------------------- admin ------------------------------------------------------------------------- -->
+
+
     <h3>Tableau admin :</h3>
+
+    <!-- php -->
+    <div>
+        <?php
+
+        // ajouter des lignes
+        if (isset ($_POST['admin'])) {
+            $loginForm7 = $_POST['login'];
+            $imageForm7 = $_POST['mdp'];
+
+            $admin = "INSERT INTO `h_admin` (`login`, `mdp`) VALUES ('$loginForm7', '$imageForm7')";
+
+            $send7 = $mysqlClient->prepare($admin);
+            $send7->execute();
+            echo "<script> window.location.href='./admin.php';</script>";
+        }
+
+
+        //afficher un tableau
+        $admin2 = "SELECT * FROM `h_admin`";
+
+        $listadmin = $mysqlClient->query($admin2);
+
+
+        // surpimer des lignes
+        if (isset ($_GET['sup'])) {
+            $titre7 = $_GET['titre'];
+            if ($titre7 == "h_admin") {
+                $id7 = $_GET['sup'];
+                $adminSup = "DELETE FROM `h_admin` WHERE id='$id7'";
+                $deleteadmin = $mysqlClient->prepare($adminSup);
+                $deleteadmin->execute();
+                echo "<script> window.location.href='./admin.php';</script>";
+            }
+        }
+        ?>
+    </div>
+
+    <form action="" method="post" class="form-group">
+        <input type="text" placeholder="login" name="login">
+        <input type="text" placeholder="mdp" name="mdp">
+        <input class="btn btn-success" type="submit" value="créer" name="admin">
+    </form>
+
+    <table class="table">
+        <thead>
+            <th>login</th>
+            <th>mdp</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <?php foreach ($listadmin as $admin3) { ?>
+                <tr>
+                    <td>
+                        <?php echo $admin3['login']; ?>
+                    </td>
+                    <td>
+                        <?php echo $admin3['mdp']; ?>
+                    </td>
+                    <td>
+                        <a href="./update.php?edit=<?php echo $admin3['id'] ?>&titre=h_admin"
+                            class="btn btn-primary">Modifier</a>
+                        <a href="./admin.php?sup=<?php echo $admin3['id'] ?>&titre=h_admin"
+                            class="btn btn-danger">Suprimer</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 
 </body>
 

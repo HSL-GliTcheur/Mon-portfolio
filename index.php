@@ -520,7 +520,7 @@ $inspiration = $inspirationtatement->fetchAll();
                             <div class="col-12 col-md-6 mb-3 mb-md-0 text-center ">
                                 <a href="./contact/tel.php" class="hover-width"
                                     style="color: black; text-decoration: none;"><i class="fa-solid fa-phone"></i> Mon
-                                    téléphone <span class="tel">000000</span>.12.49</a>
+                                    téléphone <span class="tel"></span>.12.49</a>
                             </div>
                             <div class="col-12 col-md-6 text-center">
                                 <a href="./contact/mail.php" class="hover-width"

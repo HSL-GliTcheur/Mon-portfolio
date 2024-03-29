@@ -335,8 +335,7 @@ $inspiration = $inspirationtatement->fetchAll();
                                         <a href="./img/file-download/<?php echo $listdiplome['page']; ?>"
                                             class="btn bgorange btnorange mb-2 btnFont" target="_blank">Voir la page</a>
                                         <a href="./img/file-download/<?php echo $listdiplome['telechargement']; ?>"
-                                            class="btn btn-primary  mb-2 btnFont" target="_blank"
-                                            download="Certification PIX Hugo SIMON">Télécharger</a>
+                                            class="btn btn-primary  mb-2 btnFont" target="_blank">Télécharger</a>
                                     </div>
                                 </div>
                             </div>
@@ -519,12 +518,12 @@ $inspiration = $inspirationtatement->fetchAll();
                         <h3 class="text-center border-bottom mb-4 titre">Me contacter</h3>
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3 mb-md-0 text-center ">
-                                <a href="tel:+33768661249" class="hover-width"
+                                <a href="./contact/tel.php" class="hover-width"
                                     style="color: black; text-decoration: none;"><i class="fa-solid fa-phone"></i> Mon
-                                    téléphone 07.68.66.12.49</a>
+                                    téléphone <span class="tel">000000</span>.12.49</a>
                             </div>
                             <div class="col-12 col-md-6 text-center">
-                                <a href="mailto:hsl.glitcheur@gmail.com, petit.cali@hotmail.fr" class="hover-width"
+                                <a href="./contact/mail.php" class="hover-width"
                                     style="color: black; text-decoration: none;"><i class="fa-solid fa-envelope"></i>
                                     M'envoyer un Email</a>
                             </div>
